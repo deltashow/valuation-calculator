@@ -1,0 +1,148 @@
+:root {
+    --bg-main: #0b0f19;
+    --bg-card: #151c2c;
+    --accent-gold: #fbbf24;
+    --accent-indigo: #6366f1;
+    --text-light: #f3f4f6;
+    --text-sub: #9ca3af;
+    --border-line: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator-card {
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 950px;
+    border-radius: 24px;
+    border: 1px solid var(--border-line);
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.calc-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.calc-header h2 {
+    color: var(--accent-gold);
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.calc-header p {
+    color: var(--text-sub);
+    font-size: 14px;
+}
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 850px) {
+    .calc-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.calc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: var(--text-sub);
+}
+
+select, input[type="range"] {
+    background: var(--bg-main);
+    border: 1px solid var(--border-line);
+    color: var(--text-light);
+    padding: 12px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.result-box {
+    background: var(--bg-main);
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border-line);
+}
+
+.result-box.glow {
+    border-color: var(--accent-gold);
+}
+
+.result-box span {
+    font-size: 12px;
+    color: var(--text-sub);
+}
+
+.result-box h3 {
+    font-size: 18px;
+    color: var(--accent-gold);
+    margin-top: 6px;
+}
+
+.chart-box {
+    background: var(--bg-main);
+    padding: 16px;
+    border-radius: 14px;
+    height: 220px;
+    position: relative;
+}
+
+.btn-lead {
+    background: linear-gradient(135deg, var(--accent-indigo), #4f46e5);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.btn-lead:hover {
+    opacity: 0.9;
+}

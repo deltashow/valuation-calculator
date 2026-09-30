@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة التقييم والتمويل العقاري | Smart Real Estate Calculator</title>
+    <link rel="stylesheet" href="valuation-calculator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="calculator-card">
+        <header class="calc-header">
+            <h2><i class="fa-solid fa-calculator"></i> حاسبة التقييم والتمويل العقاري</h2>
+            <p>احسب قيمة عقارك التقديرية وحلل خطة الأقساط الشهرية فوراً</p>
+        </header>
+
+        <div class="calc-grid">
+            <!-- Form Parameters -->
+            <form id="valuationForm" class="calc-form">
+                <div class="form-group">
+                    <label>المنطقة / الموقع</label>
+                    <select id="location">
+                        <option value="25000">التجمع الخامس (25,000 ج.م/م²)</option>
+                        <option value="22000">الشيخ زايد (22,000 ج.م/م²)</option>
+                        <option value="30000">العاصمة الإدارية (30,000 ج.م/م²)</option>
+                        <option value="18000">المنصورة الجديدة (18,000 ج.م/م²)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>مساحة العقار: <span id="areaVal">150</span> م²</label>
+                    <input type="range" id="area" min="50" max="500" value="150" step="5">
+                </div>
+
+                <div class="form-group">
+                    <label>مستوى التشطيب</label>
+                    <select id="finishing">
+                        <option value="1">بدون تشطيب (محارة وصفارة)</option>
+                        <option value="1.2">تشطيب لوكس (+20%)</option>
+                        <option value="1.4">ألترا سوبر لوكس (+40%)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>الدفعة الأولى (المقدم): <span id="downPaymentVal">20</span>%</label>
+                    <input type="range" id="downPayment" min="10" max="50" value="20" step="5">
+                </div>
+
+                <div class="form-group">
+                    <label>مدة التقسيط (سنوات)</label>
+                    <select id="years">
+                        <option value="3">3 سنوات</option>
+                        <option value="5" selected>5 سنوات</option>
+                        <option value="7">7 سنوات</option>
+                        <option value="10">10 سنوات</option>
+                    </select>
+                </div>
+            </form>
+
+            <!-- Results & Visuals -->
+            <div class="results-container">
+                <div class="summary-cards">
+                    <div class="result-box glow">
+                        <span>السعر التقديري للعقار</span>
+                        <h3 id="totalPrice">0 ج.م</h3>
+                    </div>
+                    <div class="result-box">
+                        <span>القسط الشهري المتوقع</span>
+                        <h3 id="monthlyInstallment">0 ج.م</h3>
+                    </div>
+                </div>
+
+                <div class="chart-box">
+                    <canvas id="paymentChart"></canvas>
+                </div>
+
+                <button class="btn-lead" id="submitLead"><i class="fa-solid fa-envelope"></i> أرسل لي عرض سعر رسمي بهذه البيانات</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="valuation-calculator.js"></script>
+</body>
+</html>
